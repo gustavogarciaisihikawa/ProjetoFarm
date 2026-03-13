@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    image: your-server-image
+    container_name: server
+    networks:
+      - farm_network
+    ports:
+      - '8080:8080'
+
+  client:
+    image: your-client-image
+    container_name: client
+    networks:
+      - farm_network
+    ports:
+      - '3000:3000'
+
+  dashboard:
+    image: your-dashboard-image
+    container_name: dashboard
+    networks:
+      - farm_network
+    ports:
+      - '5000:5000'
+
+networks:
+  farm_network:
+    driver: bridge
